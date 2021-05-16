@@ -1,0 +1,15 @@
+.button-number {
+  width: 5vw;
+  height: 5vw;
+  font-size: 3vw;
+  border-radius: 50%;
+  margin: 10px;
+  background-color: #1e5f74;
+  color: black;
+}
+
+.button-number:hover {
+  background-color: #1d2d50;
+  color: white;
+  transition: 0.3s;
+}
