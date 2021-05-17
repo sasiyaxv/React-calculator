@@ -8,21 +8,17 @@ export default class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = { userInput: "" };
-    this.handleClear = this.handleClear.bind(this);
+    this.textFieldUpdated = this.textFieldUpdated.bind(this);
+    this.numberBtnClicked = this.numberBtnClicked.bind(this);
   }
 
-  // handleChangeUserInput(event) {
-  //   this.setState({ userInput: event.target.value });
-  // }
+  textFieldUpdated(event) {
+    this.setState({ userInput: event.target.value });
+    console.log({ userInput: event.target.value });
+  }
 
-  // handleClick(event) {
-  //   // event.preventDefault();
-  //   // alert("hi");
-  //   this.setState({ userInput: event.target.value });
-  // }
-
-  handleClear() {
-    this.setState({ userInput: "" });
+  numberBtnClicked(params) {
+    // console.log(params.target.value);
   }
 
   render() {
@@ -30,14 +26,14 @@ export default class Calculator extends Component {
       <div className="calculator-wrapper">
         <div className="calculator-button-wrapper">
           <div className="input-wrapper">
-            <input className="input-calculator"></input>
+            <input
+              onChange={this.textFieldUpdated}
+              className="input-calculator"
+            ></input>
           </div>
 
           <div className="btn-row-1">
-            <BtnOperation
-              handleClear={this.handleClear}
-              value={"C"}
-            ></BtnOperation>
+            <BtnOperation value={"C"}></BtnOperation>
             <BtnOperation value={"+/-"}></BtnOperation>
             <BtnOperation value={"%"}></BtnOperation>
             <BtnOperation value={"/"}></BtnOperation>
