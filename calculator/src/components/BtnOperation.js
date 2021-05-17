@@ -4,7 +4,12 @@ import "./styles/btnOperation.css";
 const BtnOperation = (props) => {
   return (
     <div>
-      <button className="button-operation">{props.value}</button>
+      <button
+        onClick={() => props.btnClickedOperation(props.value)}
+        className="button-operation"
+      >
+        {props.value}
+      </button>
     </div>
   );
 };
