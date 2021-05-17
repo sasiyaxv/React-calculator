@@ -8,6 +8,7 @@ export default class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = { userInput: "" };
+    this.handleClear = this.handleClear.bind(this);
   }
 
   // handleChangeUserInput(event) {
@@ -20,6 +21,10 @@ export default class Calculator extends Component {
   //   this.setState({ userInput: event.target.value });
   // }
 
+  handleClear() {
+    this.setState({ userInput: "" });
+  }
+
   render() {
     return (
       <div className="calculator-wrapper">
@@ -29,7 +34,10 @@ export default class Calculator extends Component {
           </div>
 
           <div className="btn-row-1">
-            <BtnOperation value={"C"}></BtnOperation>
+            <BtnOperation
+              handleClear={this.handleClear}
+              value={"C"}
+            ></BtnOperation>
             <BtnOperation value={"+/-"}></BtnOperation>
             <BtnOperation value={"%"}></BtnOperation>
             <BtnOperation value={"/"}></BtnOperation>

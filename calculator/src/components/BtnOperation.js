@@ -4,7 +4,9 @@ import "./styles/btnOperation.css";
 const BtnOperation = (props) => {
   return (
     <div>
-      <button className="button-operation">{props.value}</button>
+      <button onClick={props.handleClear} className="button-operation">
+        {props.value}
+      </button>
     </div>
   );
 };
