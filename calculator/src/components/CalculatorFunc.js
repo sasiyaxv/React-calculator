@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BtnNumber from "./BtnNumber";
 import BtnOperation from "./BtnOperation";
 
@@ -6,9 +6,10 @@ import "./styles/calculator.css";
 
 const CalculatorFunc = () => {
   const [userInput, setUserInput] = useState(0);
+  // const [userInput2, setUserInput2] = useState(0);
 
-  const [val1, setVal1] = useState(null);
-  const [val2, setVal2] = useState(null);
+  // const [val1, setVal1] = useState(0);
+  // const [val2, setVal2] = useState(null);
 
   function textFieldUpdate(event) {
     setUserInput(event.target.value);
@@ -20,6 +21,8 @@ const CalculatorFunc = () => {
     // console.log("clicked");
     // console.log(params);
     setUserInput(`${userInput}` + params);
+    // setVal1(`${userInput}` + params);
+    // console.log(val1);
   }
 
   function btnClickedOperation(param) {
@@ -42,6 +45,26 @@ const CalculatorFunc = () => {
     alert(`${userInput}`);
   }
 
+  function btnPlusClicked() {
+    console.log("+");
+    // setVal1(userInput);
+    // setUserInput("");
+  }
+
+  function btnPlusOrMinusClicked(params) {
+    if (userInput === "") {
+      alert("DD");
+    }
+  }
+
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("Updated");
+  //     // setVal1(userInput);
+  //     // console.log(`Val1 =  + ${val1}`);
+  //   };
+  // }, [userInput]);
+
   return (
     <div className="calculator-wrapper">
       <div className="calculator-button-wrapper">
@@ -60,7 +83,7 @@ const CalculatorFunc = () => {
           ></BtnOperation>
           <BtnOperation
             value={"+/-"}
-            btnClickedOperation={btnClickedOperation}
+            btnClickedOperation={btnPlusOrMinusClicked}
           ></BtnOperation>
           <BtnOperation
             value={"%"}
@@ -95,7 +118,7 @@ const CalculatorFunc = () => {
           <BtnNumber value={3} btnClicked={btnClickedNum}></BtnNumber>
           <BtnOperation
             value={"+"}
-            btnClickedOperation={btnClickedOperation}
+            btnClickedOperation={btnPlusClicked}
           ></BtnOperation>
         </div>
         <div className="btn-row-5">
